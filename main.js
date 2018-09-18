@@ -32,7 +32,8 @@ game_state.main.prototype = {
         // Call the 'jump' function when the spacekey is hit
         // var space_key = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         // space_key.onDown.add(this.jump, this); 
-		this.game.input.touch.onTouchStart = () => {this.jump();}
+		// this.game.input.touch.onTouchStart = () => {this.jump();}
+		this.game.input.onDown.add(this.jump, this);
 
         // Create a group of 20 pipes
         this.pipes = game.add.group();
@@ -77,6 +78,8 @@ game_state.main.prototype = {
         // Get the first dead pipe of our group
         var pipe = this.pipes.getFirstDead();
 
+		if(pipe == null) return;
+		
         // Set the new position of the pipe
         pipe.reset(x, y);
 
@@ -91,9 +94,9 @@ game_state.main.prototype = {
     add_row_of_pipes: function() {
         var hole = Math.floor(Math.random()*5)+1;
         
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i < 13; i++)
             if (i != hole && i != hole +1) 
-                this.add_one_pipe(400, i*60+10);   
+                this.add_one_pipe(this.game.width, i*60+10);   
     
         this.score += 1;
         this.label_score.content = this.score;  
