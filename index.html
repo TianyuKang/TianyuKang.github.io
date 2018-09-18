@@ -4,28 +4,25 @@
     
 <head>
   <meta charset="utf-8" />
-  <title>HTML5版Flappy Bird游戏在线演示</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flappy Bird</title>
 
   <style>
-    #game_div, p {
-      width: 400px;
+    #game_div {
+      width: 100%;
+	  height: 100%;
       margin: auto;
       margin-top: 20px;
     }
   </style>
-
-  <script type="text/javascript" src="phaser.min.js"></script>
-  <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
 
-  <div style="text-align:center;clear:both"> </div>
+	<div id="game_div"> </div>
 
-  <div id="game_div"> </div>
 
-  
-<p>Press the spacebar to jump</p>
+	<script type="text/javascript" src="phaser.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
-
 </html>
